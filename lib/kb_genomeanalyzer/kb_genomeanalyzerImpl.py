@@ -76,12 +76,12 @@ class kb_genomeanalyzer:
         self.gu.mapping_genome(assembly_file, fwd_fastq, rev_fastq )
   
         self.gu.duplicate_marking()
-compile_statistics
+
         self.gu.sort_bam_index()
 
         self.gu.collect_alignment_and_insert_size_metrics(assembly_file)
    
-        #self.gu.analyze_covariates()
+        self.gu.analyze_covariates()
    
         self.gu.variant_calling(assembly_file)
    
@@ -107,7 +107,7 @@ compile_statistics
 
         self.gu.annotate_SNPs_and_predict_effects()
 
-        #self.gu.compile_statistics()
+        self.gu.compile_statistics()
 
         output = {
             'report_name': report_info['name'],
